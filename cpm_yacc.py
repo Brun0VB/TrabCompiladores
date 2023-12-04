@@ -9,7 +9,7 @@ Variaveis = []
 def p_main(p):
     'programa : expressoes'
     f = open("codigogerado.c", "w")
-    f.write(f"#include <stdio.h>\n#include <string.h>\n#include <math.h>\n\nint main(){{\n   {p[1]}\n   return 0;\n}}")
+    f.write(f"#include <stdio.h>\n#include <math.h>\n\nint main(){{\n   {p[1]}\n   return 0;\n}}")
     f.close()
 
 #NENHUMA, UMA OU MAIS EXPRESSOES
