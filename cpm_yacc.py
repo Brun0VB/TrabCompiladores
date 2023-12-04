@@ -43,7 +43,7 @@ def p_tipo(p):
     p[0] = p[1]
 
 #DECLARACAO VARIAVEL
-def p_declara_var(p):
+def p_vardef(p):
     '''
         expressao : tipo VAR
     '''
@@ -250,7 +250,7 @@ def p_negacao(p):
 
 
 #ENTRADA E SAIDA
-def p_entrada(p):
+def p_admissao(p):
     '''
     expressao : ENTRADA ABREPARENTESES VAR FECHAPARENTESES
     '''
@@ -264,7 +264,7 @@ def p_entrada(p):
             case 'varchar':
                 p[0] = f'scanf("%c", &{p[3]});'
 
-def p_saida(p):
+def p_retirada(p):
     '''
     expressao : SAIDA ABREPARENTESES VAR FECHAPARENTESES
     '''
@@ -285,7 +285,7 @@ def p_condicional(p):
     '''
     p[0] = f'if({p[3]}){{\n   {p[6]}}}'
 
-def p_condicional_alternativo(p):
+def p_alternativo(p):
     '''
     expressao : SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM
     '''
