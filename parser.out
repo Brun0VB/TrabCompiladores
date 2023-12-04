@@ -1,0 +1,1749 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ASPAS
+    SEPARADOR
+    VARDEF
+
+Grammar
+
+Rule 0     S' -> programa
+Rule 1     programa -> expressoes
+Rule 2     expressoes -> <empty>
+Rule 3     expressoes -> expressao
+Rule 4     expressoes -> expressoes expressao
+Rule 5     tipo -> INTEIRO
+Rule 6     tipo -> REAL
+Rule 7     tipo -> CARACTERE
+Rule 8     expressao -> tipo VAR
+Rule 9     expressao -> VAR ATRIBUI INTEIRODEF
+Rule 10    expressao -> VAR ATRIBUI REALDEF
+Rule 11    expressao -> VAR ATRIBUI CARACTEREDEF
+Rule 12    expressao -> VAR ATRIBUI VAR
+Rule 13    expressao -> VAR ATRIBUI VAR aritmeticos
+Rule 14    aritmeticos -> <empty>
+Rule 15    aritmeticos -> aritmetico
+Rule 16    aritmeticos -> aritmeticos aritmetico
+Rule 17    aritmetico -> SOMA VAR
+Rule 18    aritmetico -> SUBTRACAO VAR
+Rule 19    aritmetico -> MULTIPLICACAO VAR
+Rule 20    aritmetico -> DIVISAO VAR
+Rule 21    aritmetico -> RESTO VAR
+Rule 22    relacao -> VAR IGUALDADE VAR
+Rule 23    relacao -> VAR MAIOR VAR
+Rule 24    relacao -> VAR MENOR VAR
+Rule 25    relacao -> VAR MAIORIGUAL VAR
+Rule 26    relacao -> VAR MENORIGUAL VAR
+Rule 27    relacao -> VAR DIFERENTE VAR
+Rule 28    teste -> relacao logicos
+Rule 29    teste -> negacao logicos
+Rule 30    logicos -> <empty>
+Rule 31    logicos -> logico
+Rule 32    logicos -> logicos logico
+Rule 33    logico -> E relacao
+Rule 34    logico -> E negacao
+Rule 35    logico -> OU relacao
+Rule 36    logico -> OU negacao
+Rule 37    negacao -> NAO VAR
+Rule 38    expressao -> ENTRADA ABREPARENTESES VAR FECHAPARENTESES
+Rule 39    expressao -> SAIDA ABREPARENTESES VAR FECHAPARENTESES
+Rule 40    expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+Rule 41    expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM
+Rule 42    expressao -> ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+Rule 43    maismenos -> SOMA
+Rule 44    maismenos -> SUBTRACAO
+Rule 45    comparacao -> MAIOR
+Rule 46    comparacao -> MENOR
+Rule 47    comparacao -> MAIORIGUAL
+Rule 48    comparacao -> MENORIGUAL
+Rule 49    expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+
+Terminals, with rules where they appear
+
+ABREPARENTESES       : 38 39 40 41 42 49
+ASPAS                : 
+ATRIBUI              : 9 10 11 12 13
+CARACTERE            : 7
+CARACTEREDEF         : 11
+COMECO               : 40 41 41 42 49
+DIFERENTE            : 27
+DIVISAO              : 20
+DURANTE              : 49
+E                    : 33 34
+ENQUANTO             : 42
+ENTRADA              : 38
+FECHAPARENTESES      : 38 39 40 41 42 49
+FIM                  : 40 41 41 42 49
+IGUALDADE            : 22
+INTEIRO              : 5
+INTEIRODEF           : 9 49 49 49
+MAIOR                : 23 45
+MAIORIGUAL           : 25 47
+MENOR                : 24 46
+MENORIGUAL           : 26 48
+MULTIPLICACAO        : 19
+NAO                  : 37
+OU                   : 35 36
+PONTOEVIRGULA        : 49 49 49 49
+REAL                 : 6
+REALDEF              : 10
+RESTO                : 21
+SAIDA                : 39
+SE                   : 40 41
+SENAO                : 41
+SEPARADOR            : 
+SOMA                 : 17 43
+SUBTRACAO            : 18 44
+VAR                  : 8 9 10 11 12 12 13 13 17 18 19 20 21 22 22 23 23 24 24 25 25 26 26 27 27 37 38 39
+VARDEF               : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+aritmetico           : 15 16
+aritmeticos          : 13 16
+comparacao           : 49
+expressao            : 3 4
+expressoes           : 1 4 40 41 41 42 49
+logico               : 31 32
+logicos              : 28 29 32
+maismenos            : 49
+negacao              : 29 34 36
+programa             : 0
+relacao              : 28 33 35
+teste                : 40 41 42
+tipo                 : 8
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . programa
+    (1) programa -> . expressoes
+    (2) expressoes -> .
+    (3) expressoes -> . expressao
+    (4) expressoes -> . expressoes expressao
+    (8) expressao -> . tipo VAR
+    (9) expressao -> . VAR ATRIBUI INTEIRODEF
+    (10) expressao -> . VAR ATRIBUI REALDEF
+    (11) expressao -> . VAR ATRIBUI CARACTEREDEF
+    (12) expressao -> . VAR ATRIBUI VAR
+    (13) expressao -> . VAR ATRIBUI VAR aritmeticos
+    (38) expressao -> . ENTRADA ABREPARENTESES VAR FECHAPARENTESES
+    (39) expressao -> . SAIDA ABREPARENTESES VAR FECHAPARENTESES
+    (40) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (41) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM
+    (42) expressao -> . ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (49) expressao -> . DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+    (5) tipo -> . INTEIRO
+    (6) tipo -> . REAL
+    (7) tipo -> . CARACTERE
+
+  ! shift/reduce conflict for VAR resolved as shift
+  ! shift/reduce conflict for ENTRADA resolved as shift
+  ! shift/reduce conflict for SAIDA resolved as shift
+  ! shift/reduce conflict for SE resolved as shift
+  ! shift/reduce conflict for ENQUANTO resolved as shift
+  ! shift/reduce conflict for DURANTE resolved as shift
+  ! shift/reduce conflict for INTEIRO resolved as shift
+  ! shift/reduce conflict for REAL resolved as shift
+  ! shift/reduce conflict for CARACTERE resolved as shift
+    $end            reduce using rule 2 (expressoes -> .)
+    VAR             shift and go to state 5
+    ENTRADA         shift and go to state 6
+    SAIDA           shift and go to state 7
+    SE              shift and go to state 8
+    ENQUANTO        shift and go to state 9
+    DURANTE         shift and go to state 10
+    INTEIRO         shift and go to state 11
+    REAL            shift and go to state 12
+    CARACTERE       shift and go to state 13
+
+  ! VAR             [ reduce using rule 2 (expressoes -> .) ]
+  ! ENTRADA         [ reduce using rule 2 (expressoes -> .) ]
+  ! SAIDA           [ reduce using rule 2 (expressoes -> .) ]
+  ! SE              [ reduce using rule 2 (expressoes -> .) ]
+  ! ENQUANTO        [ reduce using rule 2 (expressoes -> .) ]
+  ! DURANTE         [ reduce using rule 2 (expressoes -> .) ]
+  ! INTEIRO         [ reduce using rule 2 (expressoes -> .) ]
+  ! REAL            [ reduce using rule 2 (expressoes -> .) ]
+  ! CARACTERE       [ reduce using rule 2 (expressoes -> .) ]
+
+    programa                       shift and go to state 1
+    expressoes                     shift and go to state 2
+    expressao                      shift and go to state 3
+    tipo                           shift and go to state 4
+
+state 1
+
+    (0) S' -> programa .
+
+
+
+state 2
+
+    (1) programa -> expressoes .
+    (4) expressoes -> expressoes . expressao
+    (8) expressao -> . tipo VAR
+    (9) expressao -> . VAR ATRIBUI INTEIRODEF
+    (10) expressao -> . VAR ATRIBUI REALDEF
+    (11) expressao -> . VAR ATRIBUI CARACTEREDEF
+    (12) expressao -> . VAR ATRIBUI VAR
+    (13) expressao -> . VAR ATRIBUI VAR aritmeticos
+    (38) expressao -> . ENTRADA ABREPARENTESES VAR FECHAPARENTESES
+    (39) expressao -> . SAIDA ABREPARENTESES VAR FECHAPARENTESES
+    (40) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (41) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM
+    (42) expressao -> . ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (49) expressao -> . DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+    (5) tipo -> . INTEIRO
+    (6) tipo -> . REAL
+    (7) tipo -> . CARACTERE
+
+    $end            reduce using rule 1 (programa -> expressoes .)
+    VAR             shift and go to state 5
+    ENTRADA         shift and go to state 6
+    SAIDA           shift and go to state 7
+    SE              shift and go to state 8
+    ENQUANTO        shift and go to state 9
+    DURANTE         shift and go to state 10
+    INTEIRO         shift and go to state 11
+    REAL            shift and go to state 12
+    CARACTERE       shift and go to state 13
+
+    expressao                      shift and go to state 14
+    tipo                           shift and go to state 4
+
+state 3
+
+    (3) expressoes -> expressao .
+
+    VAR             reduce using rule 3 (expressoes -> expressao .)
+    ENTRADA         reduce using rule 3 (expressoes -> expressao .)
+    SAIDA           reduce using rule 3 (expressoes -> expressao .)
+    SE              reduce using rule 3 (expressoes -> expressao .)
+    ENQUANTO        reduce using rule 3 (expressoes -> expressao .)
+    DURANTE         reduce using rule 3 (expressoes -> expressao .)
+    INTEIRO         reduce using rule 3 (expressoes -> expressao .)
+    REAL            reduce using rule 3 (expressoes -> expressao .)
+    CARACTERE       reduce using rule 3 (expressoes -> expressao .)
+    $end            reduce using rule 3 (expressoes -> expressao .)
+    FIM             reduce using rule 3 (expressoes -> expressao .)
+
+
+state 4
+
+    (8) expressao -> tipo . VAR
+
+    VAR             shift and go to state 15
+
+
+state 5
+
+    (9) expressao -> VAR . ATRIBUI INTEIRODEF
+    (10) expressao -> VAR . ATRIBUI REALDEF
+    (11) expressao -> VAR . ATRIBUI CARACTEREDEF
+    (12) expressao -> VAR . ATRIBUI VAR
+    (13) expressao -> VAR . ATRIBUI VAR aritmeticos
+
+    ATRIBUI         shift and go to state 16
+
+
+state 6
+
+    (38) expressao -> ENTRADA . ABREPARENTESES VAR FECHAPARENTESES
+
+    ABREPARENTESES  shift and go to state 17
+
+
+state 7
+
+    (39) expressao -> SAIDA . ABREPARENTESES VAR FECHAPARENTESES
+
+    ABREPARENTESES  shift and go to state 18
+
+
+state 8
+
+    (40) expressao -> SE . ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (41) expressao -> SE . ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM
+
+    ABREPARENTESES  shift and go to state 19
+
+
+state 9
+
+    (42) expressao -> ENQUANTO . ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+
+    ABREPARENTESES  shift and go to state 20
+
+
+state 10
+
+    (49) expressao -> DURANTE . ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+
+    ABREPARENTESES  shift and go to state 21
+
+
+state 11
+
+    (5) tipo -> INTEIRO .
+
+    VAR             reduce using rule 5 (tipo -> INTEIRO .)
+
+
+state 12
+
+    (6) tipo -> REAL .
+
+    VAR             reduce using rule 6 (tipo -> REAL .)
+
+
+state 13
+
+    (7) tipo -> CARACTERE .
+
+    VAR             reduce using rule 7 (tipo -> CARACTERE .)
+
+
+state 14
+
+    (4) expressoes -> expressoes expressao .
+
+    VAR             reduce using rule 4 (expressoes -> expressoes expressao .)
+    ENTRADA         reduce using rule 4 (expressoes -> expressoes expressao .)
+    SAIDA           reduce using rule 4 (expressoes -> expressoes expressao .)
+    SE              reduce using rule 4 (expressoes -> expressoes expressao .)
+    ENQUANTO        reduce using rule 4 (expressoes -> expressoes expressao .)
+    DURANTE         reduce using rule 4 (expressoes -> expressoes expressao .)
+    INTEIRO         reduce using rule 4 (expressoes -> expressoes expressao .)
+    REAL            reduce using rule 4 (expressoes -> expressoes expressao .)
+    CARACTERE       reduce using rule 4 (expressoes -> expressoes expressao .)
+    $end            reduce using rule 4 (expressoes -> expressoes expressao .)
+    FIM             reduce using rule 4 (expressoes -> expressoes expressao .)
+
+
+state 15
+
+    (8) expressao -> tipo VAR .
+
+    VAR             reduce using rule 8 (expressao -> tipo VAR .)
+    ENTRADA         reduce using rule 8 (expressao -> tipo VAR .)
+    SAIDA           reduce using rule 8 (expressao -> tipo VAR .)
+    SE              reduce using rule 8 (expressao -> tipo VAR .)
+    ENQUANTO        reduce using rule 8 (expressao -> tipo VAR .)
+    DURANTE         reduce using rule 8 (expressao -> tipo VAR .)
+    INTEIRO         reduce using rule 8 (expressao -> tipo VAR .)
+    REAL            reduce using rule 8 (expressao -> tipo VAR .)
+    CARACTERE       reduce using rule 8 (expressao -> tipo VAR .)
+    $end            reduce using rule 8 (expressao -> tipo VAR .)
+    FIM             reduce using rule 8 (expressao -> tipo VAR .)
+
+
+state 16
+
+    (9) expressao -> VAR ATRIBUI . INTEIRODEF
+    (10) expressao -> VAR ATRIBUI . REALDEF
+    (11) expressao -> VAR ATRIBUI . CARACTEREDEF
+    (12) expressao -> VAR ATRIBUI . VAR
+    (13) expressao -> VAR ATRIBUI . VAR aritmeticos
+
+    INTEIRODEF      shift and go to state 23
+    REALDEF         shift and go to state 24
+    CARACTEREDEF    shift and go to state 25
+    VAR             shift and go to state 22
+
+
+state 17
+
+    (38) expressao -> ENTRADA ABREPARENTESES . VAR FECHAPARENTESES
+
+    VAR             shift and go to state 26
+
+
+state 18
+
+    (39) expressao -> SAIDA ABREPARENTESES . VAR FECHAPARENTESES
+
+    VAR             shift and go to state 27
+
+
+state 19
+
+    (40) expressao -> SE ABREPARENTESES . teste FECHAPARENTESES COMECO expressoes FIM
+    (41) expressao -> SE ABREPARENTESES . teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM
+    (28) teste -> . relacao logicos
+    (29) teste -> . negacao logicos
+    (22) relacao -> . VAR IGUALDADE VAR
+    (23) relacao -> . VAR MAIOR VAR
+    (24) relacao -> . VAR MENOR VAR
+    (25) relacao -> . VAR MAIORIGUAL VAR
+    (26) relacao -> . VAR MENORIGUAL VAR
+    (27) relacao -> . VAR DIFERENTE VAR
+    (37) negacao -> . NAO VAR
+
+    VAR             shift and go to state 31
+    NAO             shift and go to state 32
+
+    teste                          shift and go to state 28
+    relacao                        shift and go to state 29
+    negacao                        shift and go to state 30
+
+state 20
+
+    (42) expressao -> ENQUANTO ABREPARENTESES . teste FECHAPARENTESES COMECO expressoes FIM
+    (28) teste -> . relacao logicos
+    (29) teste -> . negacao logicos
+    (22) relacao -> . VAR IGUALDADE VAR
+    (23) relacao -> . VAR MAIOR VAR
+    (24) relacao -> . VAR MENOR VAR
+    (25) relacao -> . VAR MAIORIGUAL VAR
+    (26) relacao -> . VAR MENORIGUAL VAR
+    (27) relacao -> . VAR DIFERENTE VAR
+    (37) negacao -> . NAO VAR
+
+    VAR             shift and go to state 31
+    NAO             shift and go to state 32
+
+    teste                          shift and go to state 33
+    relacao                        shift and go to state 29
+    negacao                        shift and go to state 30
+
+state 21
+
+    (49) expressao -> DURANTE ABREPARENTESES . INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+
+    INTEIRODEF      shift and go to state 34
+
+
+state 22
+
+    (12) expressao -> VAR ATRIBUI VAR .
+    (13) expressao -> VAR ATRIBUI VAR . aritmeticos
+    (14) aritmeticos -> .
+    (15) aritmeticos -> . aritmetico
+    (16) aritmeticos -> . aritmeticos aritmetico
+    (17) aritmetico -> . SOMA VAR
+    (18) aritmetico -> . SUBTRACAO VAR
+    (19) aritmetico -> . MULTIPLICACAO VAR
+    (20) aritmetico -> . DIVISAO VAR
+    (21) aritmetico -> . RESTO VAR
+
+  ! reduce/reduce conflict for VAR resolved using rule 12 (expressao -> VAR ATRIBUI VAR .)
+  ! reduce/reduce conflict for ENTRADA resolved using rule 12 (expressao -> VAR ATRIBUI VAR .)
+  ! reduce/reduce conflict for SAIDA resolved using rule 12 (expressao -> VAR ATRIBUI VAR .)
+  ! reduce/reduce conflict for SE resolved using rule 12 (expressao -> VAR ATRIBUI VAR .)
+  ! reduce/reduce conflict for ENQUANTO resolved using rule 12 (expressao -> VAR ATRIBUI VAR .)
+  ! reduce/reduce conflict for DURANTE resolved using rule 12 (expressao -> VAR ATRIBUI VAR .)
+  ! reduce/reduce conflict for INTEIRO resolved using rule 12 (expressao -> VAR ATRIBUI VAR .)
+  ! reduce/reduce conflict for REAL resolved using rule 12 (expressao -> VAR ATRIBUI VAR .)
+  ! reduce/reduce conflict for CARACTERE resolved using rule 12 (expressao -> VAR ATRIBUI VAR .)
+  ! reduce/reduce conflict for $end resolved using rule 12 (expressao -> VAR ATRIBUI VAR .)
+  ! reduce/reduce conflict for FIM resolved using rule 12 (expressao -> VAR ATRIBUI VAR .)
+  ! shift/reduce conflict for SOMA resolved as shift
+  ! shift/reduce conflict for SUBTRACAO resolved as shift
+  ! shift/reduce conflict for MULTIPLICACAO resolved as shift
+  ! shift/reduce conflict for DIVISAO resolved as shift
+  ! shift/reduce conflict for RESTO resolved as shift
+    VAR             reduce using rule 12 (expressao -> VAR ATRIBUI VAR .)
+    ENTRADA         reduce using rule 12 (expressao -> VAR ATRIBUI VAR .)
+    SAIDA           reduce using rule 12 (expressao -> VAR ATRIBUI VAR .)
+    SE              reduce using rule 12 (expressao -> VAR ATRIBUI VAR .)
+    ENQUANTO        reduce using rule 12 (expressao -> VAR ATRIBUI VAR .)
+    DURANTE         reduce using rule 12 (expressao -> VAR ATRIBUI VAR .)
+    INTEIRO         reduce using rule 12 (expressao -> VAR ATRIBUI VAR .)
+    REAL            reduce using rule 12 (expressao -> VAR ATRIBUI VAR .)
+    CARACTERE       reduce using rule 12 (expressao -> VAR ATRIBUI VAR .)
+    $end            reduce using rule 12 (expressao -> VAR ATRIBUI VAR .)
+    FIM             reduce using rule 12 (expressao -> VAR ATRIBUI VAR .)
+    SOMA            shift and go to state 37
+    SUBTRACAO       shift and go to state 38
+    MULTIPLICACAO   shift and go to state 39
+    DIVISAO         shift and go to state 40
+    RESTO           shift and go to state 41
+
+  ! SOMA            [ reduce using rule 14 (aritmeticos -> .) ]
+  ! SUBTRACAO       [ reduce using rule 14 (aritmeticos -> .) ]
+  ! MULTIPLICACAO   [ reduce using rule 14 (aritmeticos -> .) ]
+  ! DIVISAO         [ reduce using rule 14 (aritmeticos -> .) ]
+  ! RESTO           [ reduce using rule 14 (aritmeticos -> .) ]
+  ! VAR             [ reduce using rule 14 (aritmeticos -> .) ]
+  ! ENTRADA         [ reduce using rule 14 (aritmeticos -> .) ]
+  ! SAIDA           [ reduce using rule 14 (aritmeticos -> .) ]
+  ! SE              [ reduce using rule 14 (aritmeticos -> .) ]
+  ! ENQUANTO        [ reduce using rule 14 (aritmeticos -> .) ]
+  ! DURANTE         [ reduce using rule 14 (aritmeticos -> .) ]
+  ! INTEIRO         [ reduce using rule 14 (aritmeticos -> .) ]
+  ! REAL            [ reduce using rule 14 (aritmeticos -> .) ]
+  ! CARACTERE       [ reduce using rule 14 (aritmeticos -> .) ]
+  ! $end            [ reduce using rule 14 (aritmeticos -> .) ]
+  ! FIM             [ reduce using rule 14 (aritmeticos -> .) ]
+
+    aritmeticos                    shift and go to state 35
+    aritmetico                     shift and go to state 36
+
+state 23
+
+    (9) expressao -> VAR ATRIBUI INTEIRODEF .
+
+    VAR             reduce using rule 9 (expressao -> VAR ATRIBUI INTEIRODEF .)
+    ENTRADA         reduce using rule 9 (expressao -> VAR ATRIBUI INTEIRODEF .)
+    SAIDA           reduce using rule 9 (expressao -> VAR ATRIBUI INTEIRODEF .)
+    SE              reduce using rule 9 (expressao -> VAR ATRIBUI INTEIRODEF .)
+    ENQUANTO        reduce using rule 9 (expressao -> VAR ATRIBUI INTEIRODEF .)
+    DURANTE         reduce using rule 9 (expressao -> VAR ATRIBUI INTEIRODEF .)
+    INTEIRO         reduce using rule 9 (expressao -> VAR ATRIBUI INTEIRODEF .)
+    REAL            reduce using rule 9 (expressao -> VAR ATRIBUI INTEIRODEF .)
+    CARACTERE       reduce using rule 9 (expressao -> VAR ATRIBUI INTEIRODEF .)
+    $end            reduce using rule 9 (expressao -> VAR ATRIBUI INTEIRODEF .)
+    FIM             reduce using rule 9 (expressao -> VAR ATRIBUI INTEIRODEF .)
+
+
+state 24
+
+    (10) expressao -> VAR ATRIBUI REALDEF .
+
+    VAR             reduce using rule 10 (expressao -> VAR ATRIBUI REALDEF .)
+    ENTRADA         reduce using rule 10 (expressao -> VAR ATRIBUI REALDEF .)
+    SAIDA           reduce using rule 10 (expressao -> VAR ATRIBUI REALDEF .)
+    SE              reduce using rule 10 (expressao -> VAR ATRIBUI REALDEF .)
+    ENQUANTO        reduce using rule 10 (expressao -> VAR ATRIBUI REALDEF .)
+    DURANTE         reduce using rule 10 (expressao -> VAR ATRIBUI REALDEF .)
+    INTEIRO         reduce using rule 10 (expressao -> VAR ATRIBUI REALDEF .)
+    REAL            reduce using rule 10 (expressao -> VAR ATRIBUI REALDEF .)
+    CARACTERE       reduce using rule 10 (expressao -> VAR ATRIBUI REALDEF .)
+    $end            reduce using rule 10 (expressao -> VAR ATRIBUI REALDEF .)
+    FIM             reduce using rule 10 (expressao -> VAR ATRIBUI REALDEF .)
+
+
+state 25
+
+    (11) expressao -> VAR ATRIBUI CARACTEREDEF .
+
+    VAR             reduce using rule 11 (expressao -> VAR ATRIBUI CARACTEREDEF .)
+    ENTRADA         reduce using rule 11 (expressao -> VAR ATRIBUI CARACTEREDEF .)
+    SAIDA           reduce using rule 11 (expressao -> VAR ATRIBUI CARACTEREDEF .)
+    SE              reduce using rule 11 (expressao -> VAR ATRIBUI CARACTEREDEF .)
+    ENQUANTO        reduce using rule 11 (expressao -> VAR ATRIBUI CARACTEREDEF .)
+    DURANTE         reduce using rule 11 (expressao -> VAR ATRIBUI CARACTEREDEF .)
+    INTEIRO         reduce using rule 11 (expressao -> VAR ATRIBUI CARACTEREDEF .)
+    REAL            reduce using rule 11 (expressao -> VAR ATRIBUI CARACTEREDEF .)
+    CARACTERE       reduce using rule 11 (expressao -> VAR ATRIBUI CARACTEREDEF .)
+    $end            reduce using rule 11 (expressao -> VAR ATRIBUI CARACTEREDEF .)
+    FIM             reduce using rule 11 (expressao -> VAR ATRIBUI CARACTEREDEF .)
+
+
+state 26
+
+    (38) expressao -> ENTRADA ABREPARENTESES VAR . FECHAPARENTESES
+
+    FECHAPARENTESES shift and go to state 42
+
+
+state 27
+
+    (39) expressao -> SAIDA ABREPARENTESES VAR . FECHAPARENTESES
+
+    FECHAPARENTESES shift and go to state 43
+
+
+state 28
+
+    (40) expressao -> SE ABREPARENTESES teste . FECHAPARENTESES COMECO expressoes FIM
+    (41) expressao -> SE ABREPARENTESES teste . FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM
+
+    FECHAPARENTESES shift and go to state 44
+
+
+state 29
+
+    (28) teste -> relacao . logicos
+    (30) logicos -> .
+    (31) logicos -> . logico
+    (32) logicos -> . logicos logico
+    (33) logico -> . E relacao
+    (34) logico -> . E negacao
+    (35) logico -> . OU relacao
+    (36) logico -> . OU negacao
+
+  ! shift/reduce conflict for E resolved as shift
+  ! shift/reduce conflict for OU resolved as shift
+    FECHAPARENTESES reduce using rule 30 (logicos -> .)
+    E               shift and go to state 47
+    OU              shift and go to state 48
+
+  ! E               [ reduce using rule 30 (logicos -> .) ]
+  ! OU              [ reduce using rule 30 (logicos -> .) ]
+
+    logicos                        shift and go to state 45
+    logico                         shift and go to state 46
+
+state 30
+
+    (29) teste -> negacao . logicos
+    (30) logicos -> .
+    (31) logicos -> . logico
+    (32) logicos -> . logicos logico
+    (33) logico -> . E relacao
+    (34) logico -> . E negacao
+    (35) logico -> . OU relacao
+    (36) logico -> . OU negacao
+
+  ! shift/reduce conflict for E resolved as shift
+  ! shift/reduce conflict for OU resolved as shift
+    FECHAPARENTESES reduce using rule 30 (logicos -> .)
+    E               shift and go to state 47
+    OU              shift and go to state 48
+
+  ! E               [ reduce using rule 30 (logicos -> .) ]
+  ! OU              [ reduce using rule 30 (logicos -> .) ]
+
+    logicos                        shift and go to state 49
+    logico                         shift and go to state 46
+
+state 31
+
+    (22) relacao -> VAR . IGUALDADE VAR
+    (23) relacao -> VAR . MAIOR VAR
+    (24) relacao -> VAR . MENOR VAR
+    (25) relacao -> VAR . MAIORIGUAL VAR
+    (26) relacao -> VAR . MENORIGUAL VAR
+    (27) relacao -> VAR . DIFERENTE VAR
+
+    IGUALDADE       shift and go to state 50
+    MAIOR           shift and go to state 51
+    MENOR           shift and go to state 52
+    MAIORIGUAL      shift and go to state 53
+    MENORIGUAL      shift and go to state 54
+    DIFERENTE       shift and go to state 55
+
+
+state 32
+
+    (37) negacao -> NAO . VAR
+
+    VAR             shift and go to state 56
+
+
+state 33
+
+    (42) expressao -> ENQUANTO ABREPARENTESES teste . FECHAPARENTESES COMECO expressoes FIM
+
+    FECHAPARENTESES shift and go to state 57
+
+
+state 34
+
+    (49) expressao -> DURANTE ABREPARENTESES INTEIRODEF . PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+
+    PONTOEVIRGULA   shift and go to state 58
+
+
+state 35
+
+    (13) expressao -> VAR ATRIBUI VAR aritmeticos .
+    (16) aritmeticos -> aritmeticos . aritmetico
+    (17) aritmetico -> . SOMA VAR
+    (18) aritmetico -> . SUBTRACAO VAR
+    (19) aritmetico -> . MULTIPLICACAO VAR
+    (20) aritmetico -> . DIVISAO VAR
+    (21) aritmetico -> . RESTO VAR
+
+    VAR             reduce using rule 13 (expressao -> VAR ATRIBUI VAR aritmeticos .)
+    ENTRADA         reduce using rule 13 (expressao -> VAR ATRIBUI VAR aritmeticos .)
+    SAIDA           reduce using rule 13 (expressao -> VAR ATRIBUI VAR aritmeticos .)
+    SE              reduce using rule 13 (expressao -> VAR ATRIBUI VAR aritmeticos .)
+    ENQUANTO        reduce using rule 13 (expressao -> VAR ATRIBUI VAR aritmeticos .)
+    DURANTE         reduce using rule 13 (expressao -> VAR ATRIBUI VAR aritmeticos .)
+    INTEIRO         reduce using rule 13 (expressao -> VAR ATRIBUI VAR aritmeticos .)
+    REAL            reduce using rule 13 (expressao -> VAR ATRIBUI VAR aritmeticos .)
+    CARACTERE       reduce using rule 13 (expressao -> VAR ATRIBUI VAR aritmeticos .)
+    $end            reduce using rule 13 (expressao -> VAR ATRIBUI VAR aritmeticos .)
+    FIM             reduce using rule 13 (expressao -> VAR ATRIBUI VAR aritmeticos .)
+    SOMA            shift and go to state 37
+    SUBTRACAO       shift and go to state 38
+    MULTIPLICACAO   shift and go to state 39
+    DIVISAO         shift and go to state 40
+    RESTO           shift and go to state 41
+
+    aritmetico                     shift and go to state 59
+
+state 36
+
+    (15) aritmeticos -> aritmetico .
+
+    SOMA            reduce using rule 15 (aritmeticos -> aritmetico .)
+    SUBTRACAO       reduce using rule 15 (aritmeticos -> aritmetico .)
+    MULTIPLICACAO   reduce using rule 15 (aritmeticos -> aritmetico .)
+    DIVISAO         reduce using rule 15 (aritmeticos -> aritmetico .)
+    RESTO           reduce using rule 15 (aritmeticos -> aritmetico .)
+    VAR             reduce using rule 15 (aritmeticos -> aritmetico .)
+    ENTRADA         reduce using rule 15 (aritmeticos -> aritmetico .)
+    SAIDA           reduce using rule 15 (aritmeticos -> aritmetico .)
+    SE              reduce using rule 15 (aritmeticos -> aritmetico .)
+    ENQUANTO        reduce using rule 15 (aritmeticos -> aritmetico .)
+    DURANTE         reduce using rule 15 (aritmeticos -> aritmetico .)
+    INTEIRO         reduce using rule 15 (aritmeticos -> aritmetico .)
+    REAL            reduce using rule 15 (aritmeticos -> aritmetico .)
+    CARACTERE       reduce using rule 15 (aritmeticos -> aritmetico .)
+    $end            reduce using rule 15 (aritmeticos -> aritmetico .)
+    FIM             reduce using rule 15 (aritmeticos -> aritmetico .)
+
+
+state 37
+
+    (17) aritmetico -> SOMA . VAR
+
+    VAR             shift and go to state 60
+
+
+state 38
+
+    (18) aritmetico -> SUBTRACAO . VAR
+
+    VAR             shift and go to state 61
+
+
+state 39
+
+    (19) aritmetico -> MULTIPLICACAO . VAR
+
+    VAR             shift and go to state 62
+
+
+state 40
+
+    (20) aritmetico -> DIVISAO . VAR
+
+    VAR             shift and go to state 63
+
+
+state 41
+
+    (21) aritmetico -> RESTO . VAR
+
+    VAR             shift and go to state 64
+
+
+state 42
+
+    (38) expressao -> ENTRADA ABREPARENTESES VAR FECHAPARENTESES .
+
+    VAR             reduce using rule 38 (expressao -> ENTRADA ABREPARENTESES VAR FECHAPARENTESES .)
+    ENTRADA         reduce using rule 38 (expressao -> ENTRADA ABREPARENTESES VAR FECHAPARENTESES .)
+    SAIDA           reduce using rule 38 (expressao -> ENTRADA ABREPARENTESES VAR FECHAPARENTESES .)
+    SE              reduce using rule 38 (expressao -> ENTRADA ABREPARENTESES VAR FECHAPARENTESES .)
+    ENQUANTO        reduce using rule 38 (expressao -> ENTRADA ABREPARENTESES VAR FECHAPARENTESES .)
+    DURANTE         reduce using rule 38 (expressao -> ENTRADA ABREPARENTESES VAR FECHAPARENTESES .)
+    INTEIRO         reduce using rule 38 (expressao -> ENTRADA ABREPARENTESES VAR FECHAPARENTESES .)
+    REAL            reduce using rule 38 (expressao -> ENTRADA ABREPARENTESES VAR FECHAPARENTESES .)
+    CARACTERE       reduce using rule 38 (expressao -> ENTRADA ABREPARENTESES VAR FECHAPARENTESES .)
+    $end            reduce using rule 38 (expressao -> ENTRADA ABREPARENTESES VAR FECHAPARENTESES .)
+    FIM             reduce using rule 38 (expressao -> ENTRADA ABREPARENTESES VAR FECHAPARENTESES .)
+
+
+state 43
+
+    (39) expressao -> SAIDA ABREPARENTESES VAR FECHAPARENTESES .
+
+    VAR             reduce using rule 39 (expressao -> SAIDA ABREPARENTESES VAR FECHAPARENTESES .)
+    ENTRADA         reduce using rule 39 (expressao -> SAIDA ABREPARENTESES VAR FECHAPARENTESES .)
+    SAIDA           reduce using rule 39 (expressao -> SAIDA ABREPARENTESES VAR FECHAPARENTESES .)
+    SE              reduce using rule 39 (expressao -> SAIDA ABREPARENTESES VAR FECHAPARENTESES .)
+    ENQUANTO        reduce using rule 39 (expressao -> SAIDA ABREPARENTESES VAR FECHAPARENTESES .)
+    DURANTE         reduce using rule 39 (expressao -> SAIDA ABREPARENTESES VAR FECHAPARENTESES .)
+    INTEIRO         reduce using rule 39 (expressao -> SAIDA ABREPARENTESES VAR FECHAPARENTESES .)
+    REAL            reduce using rule 39 (expressao -> SAIDA ABREPARENTESES VAR FECHAPARENTESES .)
+    CARACTERE       reduce using rule 39 (expressao -> SAIDA ABREPARENTESES VAR FECHAPARENTESES .)
+    $end            reduce using rule 39 (expressao -> SAIDA ABREPARENTESES VAR FECHAPARENTESES .)
+    FIM             reduce using rule 39 (expressao -> SAIDA ABREPARENTESES VAR FECHAPARENTESES .)
+
+
+state 44
+
+    (40) expressao -> SE ABREPARENTESES teste FECHAPARENTESES . COMECO expressoes FIM
+    (41) expressao -> SE ABREPARENTESES teste FECHAPARENTESES . COMECO expressoes FIM SENAO COMECO expressoes FIM
+
+    COMECO          shift and go to state 65
+
+
+state 45
+
+    (28) teste -> relacao logicos .
+    (32) logicos -> logicos . logico
+    (33) logico -> . E relacao
+    (34) logico -> . E negacao
+    (35) logico -> . OU relacao
+    (36) logico -> . OU negacao
+
+    FECHAPARENTESES reduce using rule 28 (teste -> relacao logicos .)
+    E               shift and go to state 47
+    OU              shift and go to state 48
+
+    logico                         shift and go to state 66
+
+state 46
+
+    (31) logicos -> logico .
+
+    E               reduce using rule 31 (logicos -> logico .)
+    OU              reduce using rule 31 (logicos -> logico .)
+    FECHAPARENTESES reduce using rule 31 (logicos -> logico .)
+
+
+state 47
+
+    (33) logico -> E . relacao
+    (34) logico -> E . negacao
+    (22) relacao -> . VAR IGUALDADE VAR
+    (23) relacao -> . VAR MAIOR VAR
+    (24) relacao -> . VAR MENOR VAR
+    (25) relacao -> . VAR MAIORIGUAL VAR
+    (26) relacao -> . VAR MENORIGUAL VAR
+    (27) relacao -> . VAR DIFERENTE VAR
+    (37) negacao -> . NAO VAR
+
+    VAR             shift and go to state 31
+    NAO             shift and go to state 32
+
+    relacao                        shift and go to state 67
+    negacao                        shift and go to state 68
+
+state 48
+
+    (35) logico -> OU . relacao
+    (36) logico -> OU . negacao
+    (22) relacao -> . VAR IGUALDADE VAR
+    (23) relacao -> . VAR MAIOR VAR
+    (24) relacao -> . VAR MENOR VAR
+    (25) relacao -> . VAR MAIORIGUAL VAR
+    (26) relacao -> . VAR MENORIGUAL VAR
+    (27) relacao -> . VAR DIFERENTE VAR
+    (37) negacao -> . NAO VAR
+
+    VAR             shift and go to state 31
+    NAO             shift and go to state 32
+
+    relacao                        shift and go to state 69
+    negacao                        shift and go to state 70
+
+state 49
+
+    (29) teste -> negacao logicos .
+    (32) logicos -> logicos . logico
+    (33) logico -> . E relacao
+    (34) logico -> . E negacao
+    (35) logico -> . OU relacao
+    (36) logico -> . OU negacao
+
+    FECHAPARENTESES reduce using rule 29 (teste -> negacao logicos .)
+    E               shift and go to state 47
+    OU              shift and go to state 48
+
+    logico                         shift and go to state 66
+
+state 50
+
+    (22) relacao -> VAR IGUALDADE . VAR
+
+    VAR             shift and go to state 71
+
+
+state 51
+
+    (23) relacao -> VAR MAIOR . VAR
+
+    VAR             shift and go to state 72
+
+
+state 52
+
+    (24) relacao -> VAR MENOR . VAR
+
+    VAR             shift and go to state 73
+
+
+state 53
+
+    (25) relacao -> VAR MAIORIGUAL . VAR
+
+    VAR             shift and go to state 74
+
+
+state 54
+
+    (26) relacao -> VAR MENORIGUAL . VAR
+
+    VAR             shift and go to state 75
+
+
+state 55
+
+    (27) relacao -> VAR DIFERENTE . VAR
+
+    VAR             shift and go to state 76
+
+
+state 56
+
+    (37) negacao -> NAO VAR .
+
+    E               reduce using rule 37 (negacao -> NAO VAR .)
+    OU              reduce using rule 37 (negacao -> NAO VAR .)
+    FECHAPARENTESES reduce using rule 37 (negacao -> NAO VAR .)
+
+
+state 57
+
+    (42) expressao -> ENQUANTO ABREPARENTESES teste FECHAPARENTESES . COMECO expressoes FIM
+
+    COMECO          shift and go to state 77
+
+
+state 58
+
+    (49) expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA . maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+    (43) maismenos -> . SOMA
+    (44) maismenos -> . SUBTRACAO
+
+    SOMA            shift and go to state 79
+    SUBTRACAO       shift and go to state 80
+
+    maismenos                      shift and go to state 78
+
+state 59
+
+    (16) aritmeticos -> aritmeticos aritmetico .
+
+    SOMA            reduce using rule 16 (aritmeticos -> aritmeticos aritmetico .)
+    SUBTRACAO       reduce using rule 16 (aritmeticos -> aritmeticos aritmetico .)
+    MULTIPLICACAO   reduce using rule 16 (aritmeticos -> aritmeticos aritmetico .)
+    DIVISAO         reduce using rule 16 (aritmeticos -> aritmeticos aritmetico .)
+    RESTO           reduce using rule 16 (aritmeticos -> aritmeticos aritmetico .)
+    VAR             reduce using rule 16 (aritmeticos -> aritmeticos aritmetico .)
+    ENTRADA         reduce using rule 16 (aritmeticos -> aritmeticos aritmetico .)
+    SAIDA           reduce using rule 16 (aritmeticos -> aritmeticos aritmetico .)
+    SE              reduce using rule 16 (aritmeticos -> aritmeticos aritmetico .)
+    ENQUANTO        reduce using rule 16 (aritmeticos -> aritmeticos aritmetico .)
+    DURANTE         reduce using rule 16 (aritmeticos -> aritmeticos aritmetico .)
+    INTEIRO         reduce using rule 16 (aritmeticos -> aritmeticos aritmetico .)
+    REAL            reduce using rule 16 (aritmeticos -> aritmeticos aritmetico .)
+    CARACTERE       reduce using rule 16 (aritmeticos -> aritmeticos aritmetico .)
+    $end            reduce using rule 16 (aritmeticos -> aritmeticos aritmetico .)
+    FIM             reduce using rule 16 (aritmeticos -> aritmeticos aritmetico .)
+
+
+state 60
+
+    (17) aritmetico -> SOMA VAR .
+
+    SOMA            reduce using rule 17 (aritmetico -> SOMA VAR .)
+    SUBTRACAO       reduce using rule 17 (aritmetico -> SOMA VAR .)
+    MULTIPLICACAO   reduce using rule 17 (aritmetico -> SOMA VAR .)
+    DIVISAO         reduce using rule 17 (aritmetico -> SOMA VAR .)
+    RESTO           reduce using rule 17 (aritmetico -> SOMA VAR .)
+    VAR             reduce using rule 17 (aritmetico -> SOMA VAR .)
+    ENTRADA         reduce using rule 17 (aritmetico -> SOMA VAR .)
+    SAIDA           reduce using rule 17 (aritmetico -> SOMA VAR .)
+    SE              reduce using rule 17 (aritmetico -> SOMA VAR .)
+    ENQUANTO        reduce using rule 17 (aritmetico -> SOMA VAR .)
+    DURANTE         reduce using rule 17 (aritmetico -> SOMA VAR .)
+    INTEIRO         reduce using rule 17 (aritmetico -> SOMA VAR .)
+    REAL            reduce using rule 17 (aritmetico -> SOMA VAR .)
+    CARACTERE       reduce using rule 17 (aritmetico -> SOMA VAR .)
+    $end            reduce using rule 17 (aritmetico -> SOMA VAR .)
+    FIM             reduce using rule 17 (aritmetico -> SOMA VAR .)
+
+
+state 61
+
+    (18) aritmetico -> SUBTRACAO VAR .
+
+    SOMA            reduce using rule 18 (aritmetico -> SUBTRACAO VAR .)
+    SUBTRACAO       reduce using rule 18 (aritmetico -> SUBTRACAO VAR .)
+    MULTIPLICACAO   reduce using rule 18 (aritmetico -> SUBTRACAO VAR .)
+    DIVISAO         reduce using rule 18 (aritmetico -> SUBTRACAO VAR .)
+    RESTO           reduce using rule 18 (aritmetico -> SUBTRACAO VAR .)
+    VAR             reduce using rule 18 (aritmetico -> SUBTRACAO VAR .)
+    ENTRADA         reduce using rule 18 (aritmetico -> SUBTRACAO VAR .)
+    SAIDA           reduce using rule 18 (aritmetico -> SUBTRACAO VAR .)
+    SE              reduce using rule 18 (aritmetico -> SUBTRACAO VAR .)
+    ENQUANTO        reduce using rule 18 (aritmetico -> SUBTRACAO VAR .)
+    DURANTE         reduce using rule 18 (aritmetico -> SUBTRACAO VAR .)
+    INTEIRO         reduce using rule 18 (aritmetico -> SUBTRACAO VAR .)
+    REAL            reduce using rule 18 (aritmetico -> SUBTRACAO VAR .)
+    CARACTERE       reduce using rule 18 (aritmetico -> SUBTRACAO VAR .)
+    $end            reduce using rule 18 (aritmetico -> SUBTRACAO VAR .)
+    FIM             reduce using rule 18 (aritmetico -> SUBTRACAO VAR .)
+
+
+state 62
+
+    (19) aritmetico -> MULTIPLICACAO VAR .
+
+    SOMA            reduce using rule 19 (aritmetico -> MULTIPLICACAO VAR .)
+    SUBTRACAO       reduce using rule 19 (aritmetico -> MULTIPLICACAO VAR .)
+    MULTIPLICACAO   reduce using rule 19 (aritmetico -> MULTIPLICACAO VAR .)
+    DIVISAO         reduce using rule 19 (aritmetico -> MULTIPLICACAO VAR .)
+    RESTO           reduce using rule 19 (aritmetico -> MULTIPLICACAO VAR .)
+    VAR             reduce using rule 19 (aritmetico -> MULTIPLICACAO VAR .)
+    ENTRADA         reduce using rule 19 (aritmetico -> MULTIPLICACAO VAR .)
+    SAIDA           reduce using rule 19 (aritmetico -> MULTIPLICACAO VAR .)
+    SE              reduce using rule 19 (aritmetico -> MULTIPLICACAO VAR .)
+    ENQUANTO        reduce using rule 19 (aritmetico -> MULTIPLICACAO VAR .)
+    DURANTE         reduce using rule 19 (aritmetico -> MULTIPLICACAO VAR .)
+    INTEIRO         reduce using rule 19 (aritmetico -> MULTIPLICACAO VAR .)
+    REAL            reduce using rule 19 (aritmetico -> MULTIPLICACAO VAR .)
+    CARACTERE       reduce using rule 19 (aritmetico -> MULTIPLICACAO VAR .)
+    $end            reduce using rule 19 (aritmetico -> MULTIPLICACAO VAR .)
+    FIM             reduce using rule 19 (aritmetico -> MULTIPLICACAO VAR .)
+
+
+state 63
+
+    (20) aritmetico -> DIVISAO VAR .
+
+    SOMA            reduce using rule 20 (aritmetico -> DIVISAO VAR .)
+    SUBTRACAO       reduce using rule 20 (aritmetico -> DIVISAO VAR .)
+    MULTIPLICACAO   reduce using rule 20 (aritmetico -> DIVISAO VAR .)
+    DIVISAO         reduce using rule 20 (aritmetico -> DIVISAO VAR .)
+    RESTO           reduce using rule 20 (aritmetico -> DIVISAO VAR .)
+    VAR             reduce using rule 20 (aritmetico -> DIVISAO VAR .)
+    ENTRADA         reduce using rule 20 (aritmetico -> DIVISAO VAR .)
+    SAIDA           reduce using rule 20 (aritmetico -> DIVISAO VAR .)
+    SE              reduce using rule 20 (aritmetico -> DIVISAO VAR .)
+    ENQUANTO        reduce using rule 20 (aritmetico -> DIVISAO VAR .)
+    DURANTE         reduce using rule 20 (aritmetico -> DIVISAO VAR .)
+    INTEIRO         reduce using rule 20 (aritmetico -> DIVISAO VAR .)
+    REAL            reduce using rule 20 (aritmetico -> DIVISAO VAR .)
+    CARACTERE       reduce using rule 20 (aritmetico -> DIVISAO VAR .)
+    $end            reduce using rule 20 (aritmetico -> DIVISAO VAR .)
+    FIM             reduce using rule 20 (aritmetico -> DIVISAO VAR .)
+
+
+state 64
+
+    (21) aritmetico -> RESTO VAR .
+
+    SOMA            reduce using rule 21 (aritmetico -> RESTO VAR .)
+    SUBTRACAO       reduce using rule 21 (aritmetico -> RESTO VAR .)
+    MULTIPLICACAO   reduce using rule 21 (aritmetico -> RESTO VAR .)
+    DIVISAO         reduce using rule 21 (aritmetico -> RESTO VAR .)
+    RESTO           reduce using rule 21 (aritmetico -> RESTO VAR .)
+    VAR             reduce using rule 21 (aritmetico -> RESTO VAR .)
+    ENTRADA         reduce using rule 21 (aritmetico -> RESTO VAR .)
+    SAIDA           reduce using rule 21 (aritmetico -> RESTO VAR .)
+    SE              reduce using rule 21 (aritmetico -> RESTO VAR .)
+    ENQUANTO        reduce using rule 21 (aritmetico -> RESTO VAR .)
+    DURANTE         reduce using rule 21 (aritmetico -> RESTO VAR .)
+    INTEIRO         reduce using rule 21 (aritmetico -> RESTO VAR .)
+    REAL            reduce using rule 21 (aritmetico -> RESTO VAR .)
+    CARACTERE       reduce using rule 21 (aritmetico -> RESTO VAR .)
+    $end            reduce using rule 21 (aritmetico -> RESTO VAR .)
+    FIM             reduce using rule 21 (aritmetico -> RESTO VAR .)
+
+
+state 65
+
+    (40) expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO . expressoes FIM
+    (41) expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO . expressoes FIM SENAO COMECO expressoes FIM
+    (2) expressoes -> .
+    (3) expressoes -> . expressao
+    (4) expressoes -> . expressoes expressao
+    (8) expressao -> . tipo VAR
+    (9) expressao -> . VAR ATRIBUI INTEIRODEF
+    (10) expressao -> . VAR ATRIBUI REALDEF
+    (11) expressao -> . VAR ATRIBUI CARACTEREDEF
+    (12) expressao -> . VAR ATRIBUI VAR
+    (13) expressao -> . VAR ATRIBUI VAR aritmeticos
+    (38) expressao -> . ENTRADA ABREPARENTESES VAR FECHAPARENTESES
+    (39) expressao -> . SAIDA ABREPARENTESES VAR FECHAPARENTESES
+    (40) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (41) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM
+    (42) expressao -> . ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (49) expressao -> . DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+    (5) tipo -> . INTEIRO
+    (6) tipo -> . REAL
+    (7) tipo -> . CARACTERE
+
+  ! shift/reduce conflict for VAR resolved as shift
+  ! shift/reduce conflict for ENTRADA resolved as shift
+  ! shift/reduce conflict for SAIDA resolved as shift
+  ! shift/reduce conflict for SE resolved as shift
+  ! shift/reduce conflict for ENQUANTO resolved as shift
+  ! shift/reduce conflict for DURANTE resolved as shift
+  ! shift/reduce conflict for INTEIRO resolved as shift
+  ! shift/reduce conflict for REAL resolved as shift
+  ! shift/reduce conflict for CARACTERE resolved as shift
+    FIM             reduce using rule 2 (expressoes -> .)
+    VAR             shift and go to state 5
+    ENTRADA         shift and go to state 6
+    SAIDA           shift and go to state 7
+    SE              shift and go to state 8
+    ENQUANTO        shift and go to state 9
+    DURANTE         shift and go to state 10
+    INTEIRO         shift and go to state 11
+    REAL            shift and go to state 12
+    CARACTERE       shift and go to state 13
+
+  ! VAR             [ reduce using rule 2 (expressoes -> .) ]
+  ! ENTRADA         [ reduce using rule 2 (expressoes -> .) ]
+  ! SAIDA           [ reduce using rule 2 (expressoes -> .) ]
+  ! SE              [ reduce using rule 2 (expressoes -> .) ]
+  ! ENQUANTO        [ reduce using rule 2 (expressoes -> .) ]
+  ! DURANTE         [ reduce using rule 2 (expressoes -> .) ]
+  ! INTEIRO         [ reduce using rule 2 (expressoes -> .) ]
+  ! REAL            [ reduce using rule 2 (expressoes -> .) ]
+  ! CARACTERE       [ reduce using rule 2 (expressoes -> .) ]
+
+    expressoes                     shift and go to state 81
+    expressao                      shift and go to state 3
+    tipo                           shift and go to state 4
+
+state 66
+
+    (32) logicos -> logicos logico .
+
+    E               reduce using rule 32 (logicos -> logicos logico .)
+    OU              reduce using rule 32 (logicos -> logicos logico .)
+    FECHAPARENTESES reduce using rule 32 (logicos -> logicos logico .)
+
+
+state 67
+
+    (33) logico -> E relacao .
+
+    E               reduce using rule 33 (logico -> E relacao .)
+    OU              reduce using rule 33 (logico -> E relacao .)
+    FECHAPARENTESES reduce using rule 33 (logico -> E relacao .)
+
+
+state 68
+
+    (34) logico -> E negacao .
+
+    E               reduce using rule 34 (logico -> E negacao .)
+    OU              reduce using rule 34 (logico -> E negacao .)
+    FECHAPARENTESES reduce using rule 34 (logico -> E negacao .)
+
+
+state 69
+
+    (35) logico -> OU relacao .
+
+    E               reduce using rule 35 (logico -> OU relacao .)
+    OU              reduce using rule 35 (logico -> OU relacao .)
+    FECHAPARENTESES reduce using rule 35 (logico -> OU relacao .)
+
+
+state 70
+
+    (36) logico -> OU negacao .
+
+    E               reduce using rule 36 (logico -> OU negacao .)
+    OU              reduce using rule 36 (logico -> OU negacao .)
+    FECHAPARENTESES reduce using rule 36 (logico -> OU negacao .)
+
+
+state 71
+
+    (22) relacao -> VAR IGUALDADE VAR .
+
+    E               reduce using rule 22 (relacao -> VAR IGUALDADE VAR .)
+    OU              reduce using rule 22 (relacao -> VAR IGUALDADE VAR .)
+    FECHAPARENTESES reduce using rule 22 (relacao -> VAR IGUALDADE VAR .)
+
+
+state 72
+
+    (23) relacao -> VAR MAIOR VAR .
+
+    E               reduce using rule 23 (relacao -> VAR MAIOR VAR .)
+    OU              reduce using rule 23 (relacao -> VAR MAIOR VAR .)
+    FECHAPARENTESES reduce using rule 23 (relacao -> VAR MAIOR VAR .)
+
+
+state 73
+
+    (24) relacao -> VAR MENOR VAR .
+
+    E               reduce using rule 24 (relacao -> VAR MENOR VAR .)
+    OU              reduce using rule 24 (relacao -> VAR MENOR VAR .)
+    FECHAPARENTESES reduce using rule 24 (relacao -> VAR MENOR VAR .)
+
+
+state 74
+
+    (25) relacao -> VAR MAIORIGUAL VAR .
+
+    E               reduce using rule 25 (relacao -> VAR MAIORIGUAL VAR .)
+    OU              reduce using rule 25 (relacao -> VAR MAIORIGUAL VAR .)
+    FECHAPARENTESES reduce using rule 25 (relacao -> VAR MAIORIGUAL VAR .)
+
+
+state 75
+
+    (26) relacao -> VAR MENORIGUAL VAR .
+
+    E               reduce using rule 26 (relacao -> VAR MENORIGUAL VAR .)
+    OU              reduce using rule 26 (relacao -> VAR MENORIGUAL VAR .)
+    FECHAPARENTESES reduce using rule 26 (relacao -> VAR MENORIGUAL VAR .)
+
+
+state 76
+
+    (27) relacao -> VAR DIFERENTE VAR .
+
+    E               reduce using rule 27 (relacao -> VAR DIFERENTE VAR .)
+    OU              reduce using rule 27 (relacao -> VAR DIFERENTE VAR .)
+    FECHAPARENTESES reduce using rule 27 (relacao -> VAR DIFERENTE VAR .)
+
+
+state 77
+
+    (42) expressao -> ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO . expressoes FIM
+    (2) expressoes -> .
+    (3) expressoes -> . expressao
+    (4) expressoes -> . expressoes expressao
+    (8) expressao -> . tipo VAR
+    (9) expressao -> . VAR ATRIBUI INTEIRODEF
+    (10) expressao -> . VAR ATRIBUI REALDEF
+    (11) expressao -> . VAR ATRIBUI CARACTEREDEF
+    (12) expressao -> . VAR ATRIBUI VAR
+    (13) expressao -> . VAR ATRIBUI VAR aritmeticos
+    (38) expressao -> . ENTRADA ABREPARENTESES VAR FECHAPARENTESES
+    (39) expressao -> . SAIDA ABREPARENTESES VAR FECHAPARENTESES
+    (40) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (41) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM
+    (42) expressao -> . ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (49) expressao -> . DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+    (5) tipo -> . INTEIRO
+    (6) tipo -> . REAL
+    (7) tipo -> . CARACTERE
+
+  ! shift/reduce conflict for VAR resolved as shift
+  ! shift/reduce conflict for ENTRADA resolved as shift
+  ! shift/reduce conflict for SAIDA resolved as shift
+  ! shift/reduce conflict for SE resolved as shift
+  ! shift/reduce conflict for ENQUANTO resolved as shift
+  ! shift/reduce conflict for DURANTE resolved as shift
+  ! shift/reduce conflict for INTEIRO resolved as shift
+  ! shift/reduce conflict for REAL resolved as shift
+  ! shift/reduce conflict for CARACTERE resolved as shift
+    FIM             reduce using rule 2 (expressoes -> .)
+    VAR             shift and go to state 5
+    ENTRADA         shift and go to state 6
+    SAIDA           shift and go to state 7
+    SE              shift and go to state 8
+    ENQUANTO        shift and go to state 9
+    DURANTE         shift and go to state 10
+    INTEIRO         shift and go to state 11
+    REAL            shift and go to state 12
+    CARACTERE       shift and go to state 13
+
+  ! VAR             [ reduce using rule 2 (expressoes -> .) ]
+  ! ENTRADA         [ reduce using rule 2 (expressoes -> .) ]
+  ! SAIDA           [ reduce using rule 2 (expressoes -> .) ]
+  ! SE              [ reduce using rule 2 (expressoes -> .) ]
+  ! ENQUANTO        [ reduce using rule 2 (expressoes -> .) ]
+  ! DURANTE         [ reduce using rule 2 (expressoes -> .) ]
+  ! INTEIRO         [ reduce using rule 2 (expressoes -> .) ]
+  ! REAL            [ reduce using rule 2 (expressoes -> .) ]
+  ! CARACTERE       [ reduce using rule 2 (expressoes -> .) ]
+
+    expressoes                     shift and go to state 82
+    expressao                      shift and go to state 3
+    tipo                           shift and go to state 4
+
+state 78
+
+    (49) expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos . PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+
+    PONTOEVIRGULA   shift and go to state 83
+
+
+state 79
+
+    (43) maismenos -> SOMA .
+
+    PONTOEVIRGULA   reduce using rule 43 (maismenos -> SOMA .)
+
+
+state 80
+
+    (44) maismenos -> SUBTRACAO .
+
+    PONTOEVIRGULA   reduce using rule 44 (maismenos -> SUBTRACAO .)
+
+
+state 81
+
+    (40) expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes . FIM
+    (41) expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes . FIM SENAO COMECO expressoes FIM
+    (4) expressoes -> expressoes . expressao
+    (8) expressao -> . tipo VAR
+    (9) expressao -> . VAR ATRIBUI INTEIRODEF
+    (10) expressao -> . VAR ATRIBUI REALDEF
+    (11) expressao -> . VAR ATRIBUI CARACTEREDEF
+    (12) expressao -> . VAR ATRIBUI VAR
+    (13) expressao -> . VAR ATRIBUI VAR aritmeticos
+    (38) expressao -> . ENTRADA ABREPARENTESES VAR FECHAPARENTESES
+    (39) expressao -> . SAIDA ABREPARENTESES VAR FECHAPARENTESES
+    (40) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (41) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM
+    (42) expressao -> . ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (49) expressao -> . DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+    (5) tipo -> . INTEIRO
+    (6) tipo -> . REAL
+    (7) tipo -> . CARACTERE
+
+    FIM             shift and go to state 84
+    VAR             shift and go to state 5
+    ENTRADA         shift and go to state 6
+    SAIDA           shift and go to state 7
+    SE              shift and go to state 8
+    ENQUANTO        shift and go to state 9
+    DURANTE         shift and go to state 10
+    INTEIRO         shift and go to state 11
+    REAL            shift and go to state 12
+    CARACTERE       shift and go to state 13
+
+    expressao                      shift and go to state 14
+    tipo                           shift and go to state 4
+
+state 82
+
+    (42) expressao -> ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes . FIM
+    (4) expressoes -> expressoes . expressao
+    (8) expressao -> . tipo VAR
+    (9) expressao -> . VAR ATRIBUI INTEIRODEF
+    (10) expressao -> . VAR ATRIBUI REALDEF
+    (11) expressao -> . VAR ATRIBUI CARACTEREDEF
+    (12) expressao -> . VAR ATRIBUI VAR
+    (13) expressao -> . VAR ATRIBUI VAR aritmeticos
+    (38) expressao -> . ENTRADA ABREPARENTESES VAR FECHAPARENTESES
+    (39) expressao -> . SAIDA ABREPARENTESES VAR FECHAPARENTESES
+    (40) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (41) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM
+    (42) expressao -> . ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (49) expressao -> . DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+    (5) tipo -> . INTEIRO
+    (6) tipo -> . REAL
+    (7) tipo -> . CARACTERE
+
+    FIM             shift and go to state 85
+    VAR             shift and go to state 5
+    ENTRADA         shift and go to state 6
+    SAIDA           shift and go to state 7
+    SE              shift and go to state 8
+    ENQUANTO        shift and go to state 9
+    DURANTE         shift and go to state 10
+    INTEIRO         shift and go to state 11
+    REAL            shift and go to state 12
+    CARACTERE       shift and go to state 13
+
+    expressao                      shift and go to state 14
+    tipo                           shift and go to state 4
+
+state 83
+
+    (49) expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA . INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+
+    INTEIRODEF      shift and go to state 86
+
+
+state 84
+
+    (40) expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .
+    (41) expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM . SENAO COMECO expressoes FIM
+
+    VAR             reduce using rule 40 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    ENTRADA         reduce using rule 40 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    SAIDA           reduce using rule 40 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    SE              reduce using rule 40 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    ENQUANTO        reduce using rule 40 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    DURANTE         reduce using rule 40 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    INTEIRO         reduce using rule 40 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    REAL            reduce using rule 40 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    CARACTERE       reduce using rule 40 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    $end            reduce using rule 40 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    FIM             reduce using rule 40 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    SENAO           shift and go to state 87
+
+
+state 85
+
+    (42) expressao -> ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .
+
+    VAR             reduce using rule 42 (expressao -> ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    ENTRADA         reduce using rule 42 (expressao -> ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    SAIDA           reduce using rule 42 (expressao -> ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    SE              reduce using rule 42 (expressao -> ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    ENQUANTO        reduce using rule 42 (expressao -> ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    DURANTE         reduce using rule 42 (expressao -> ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    INTEIRO         reduce using rule 42 (expressao -> ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    REAL            reduce using rule 42 (expressao -> ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    CARACTERE       reduce using rule 42 (expressao -> ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    $end            reduce using rule 42 (expressao -> ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+    FIM             reduce using rule 42 (expressao -> ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM .)
+
+
+state 86
+
+    (49) expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF . PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+
+    PONTOEVIRGULA   shift and go to state 88
+
+
+state 87
+
+    (41) expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO . COMECO expressoes FIM
+
+    COMECO          shift and go to state 89
+
+
+state 88
+
+    (49) expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA . comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+    (45) comparacao -> . MAIOR
+    (46) comparacao -> . MENOR
+    (47) comparacao -> . MAIORIGUAL
+    (48) comparacao -> . MENORIGUAL
+
+    MAIOR           shift and go to state 91
+    MENOR           shift and go to state 92
+    MAIORIGUAL      shift and go to state 93
+    MENORIGUAL      shift and go to state 94
+
+    comparacao                     shift and go to state 90
+
+state 89
+
+    (41) expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO . expressoes FIM
+    (2) expressoes -> .
+    (3) expressoes -> . expressao
+    (4) expressoes -> . expressoes expressao
+    (8) expressao -> . tipo VAR
+    (9) expressao -> . VAR ATRIBUI INTEIRODEF
+    (10) expressao -> . VAR ATRIBUI REALDEF
+    (11) expressao -> . VAR ATRIBUI CARACTEREDEF
+    (12) expressao -> . VAR ATRIBUI VAR
+    (13) expressao -> . VAR ATRIBUI VAR aritmeticos
+    (38) expressao -> . ENTRADA ABREPARENTESES VAR FECHAPARENTESES
+    (39) expressao -> . SAIDA ABREPARENTESES VAR FECHAPARENTESES
+    (40) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (41) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM
+    (42) expressao -> . ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (49) expressao -> . DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+    (5) tipo -> . INTEIRO
+    (6) tipo -> . REAL
+    (7) tipo -> . CARACTERE
+
+  ! shift/reduce conflict for VAR resolved as shift
+  ! shift/reduce conflict for ENTRADA resolved as shift
+  ! shift/reduce conflict for SAIDA resolved as shift
+  ! shift/reduce conflict for SE resolved as shift
+  ! shift/reduce conflict for ENQUANTO resolved as shift
+  ! shift/reduce conflict for DURANTE resolved as shift
+  ! shift/reduce conflict for INTEIRO resolved as shift
+  ! shift/reduce conflict for REAL resolved as shift
+  ! shift/reduce conflict for CARACTERE resolved as shift
+    FIM             reduce using rule 2 (expressoes -> .)
+    VAR             shift and go to state 5
+    ENTRADA         shift and go to state 6
+    SAIDA           shift and go to state 7
+    SE              shift and go to state 8
+    ENQUANTO        shift and go to state 9
+    DURANTE         shift and go to state 10
+    INTEIRO         shift and go to state 11
+    REAL            shift and go to state 12
+    CARACTERE       shift and go to state 13
+
+  ! VAR             [ reduce using rule 2 (expressoes -> .) ]
+  ! ENTRADA         [ reduce using rule 2 (expressoes -> .) ]
+  ! SAIDA           [ reduce using rule 2 (expressoes -> .) ]
+  ! SE              [ reduce using rule 2 (expressoes -> .) ]
+  ! ENQUANTO        [ reduce using rule 2 (expressoes -> .) ]
+  ! DURANTE         [ reduce using rule 2 (expressoes -> .) ]
+  ! INTEIRO         [ reduce using rule 2 (expressoes -> .) ]
+  ! REAL            [ reduce using rule 2 (expressoes -> .) ]
+  ! CARACTERE       [ reduce using rule 2 (expressoes -> .) ]
+
+    expressoes                     shift and go to state 95
+    expressao                      shift and go to state 3
+    tipo                           shift and go to state 4
+
+state 90
+
+    (49) expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao . PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+
+    PONTOEVIRGULA   shift and go to state 96
+
+
+state 91
+
+    (45) comparacao -> MAIOR .
+
+    PONTOEVIRGULA   reduce using rule 45 (comparacao -> MAIOR .)
+
+
+state 92
+
+    (46) comparacao -> MENOR .
+
+    PONTOEVIRGULA   reduce using rule 46 (comparacao -> MENOR .)
+
+
+state 93
+
+    (47) comparacao -> MAIORIGUAL .
+
+    PONTOEVIRGULA   reduce using rule 47 (comparacao -> MAIORIGUAL .)
+
+
+state 94
+
+    (48) comparacao -> MENORIGUAL .
+
+    PONTOEVIRGULA   reduce using rule 48 (comparacao -> MENORIGUAL .)
+
+
+state 95
+
+    (41) expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes . FIM
+    (4) expressoes -> expressoes . expressao
+    (8) expressao -> . tipo VAR
+    (9) expressao -> . VAR ATRIBUI INTEIRODEF
+    (10) expressao -> . VAR ATRIBUI REALDEF
+    (11) expressao -> . VAR ATRIBUI CARACTEREDEF
+    (12) expressao -> . VAR ATRIBUI VAR
+    (13) expressao -> . VAR ATRIBUI VAR aritmeticos
+    (38) expressao -> . ENTRADA ABREPARENTESES VAR FECHAPARENTESES
+    (39) expressao -> . SAIDA ABREPARENTESES VAR FECHAPARENTESES
+    (40) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (41) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM
+    (42) expressao -> . ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (49) expressao -> . DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+    (5) tipo -> . INTEIRO
+    (6) tipo -> . REAL
+    (7) tipo -> . CARACTERE
+
+    FIM             shift and go to state 97
+    VAR             shift and go to state 5
+    ENTRADA         shift and go to state 6
+    SAIDA           shift and go to state 7
+    SE              shift and go to state 8
+    ENQUANTO        shift and go to state 9
+    DURANTE         shift and go to state 10
+    INTEIRO         shift and go to state 11
+    REAL            shift and go to state 12
+    CARACTERE       shift and go to state 13
+
+    expressao                      shift and go to state 14
+    tipo                           shift and go to state 4
+
+state 96
+
+    (49) expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA . INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+
+    INTEIRODEF      shift and go to state 98
+
+
+state 97
+
+    (41) expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM .
+
+    VAR             reduce using rule 41 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM .)
+    ENTRADA         reduce using rule 41 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM .)
+    SAIDA           reduce using rule 41 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM .)
+    SE              reduce using rule 41 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM .)
+    ENQUANTO        reduce using rule 41 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM .)
+    DURANTE         reduce using rule 41 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM .)
+    INTEIRO         reduce using rule 41 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM .)
+    REAL            reduce using rule 41 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM .)
+    CARACTERE       reduce using rule 41 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM .)
+    $end            reduce using rule 41 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM .)
+    FIM             reduce using rule 41 (expressao -> SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM .)
+
+
+state 98
+
+    (49) expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF . FECHAPARENTESES COMECO expressoes FIM
+
+    FECHAPARENTESES shift and go to state 99
+
+
+state 99
+
+    (49) expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES . COMECO expressoes FIM
+
+    COMECO          shift and go to state 100
+
+
+state 100
+
+    (49) expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO . expressoes FIM
+    (2) expressoes -> .
+    (3) expressoes -> . expressao
+    (4) expressoes -> . expressoes expressao
+    (8) expressao -> . tipo VAR
+    (9) expressao -> . VAR ATRIBUI INTEIRODEF
+    (10) expressao -> . VAR ATRIBUI REALDEF
+    (11) expressao -> . VAR ATRIBUI CARACTEREDEF
+    (12) expressao -> . VAR ATRIBUI VAR
+    (13) expressao -> . VAR ATRIBUI VAR aritmeticos
+    (38) expressao -> . ENTRADA ABREPARENTESES VAR FECHAPARENTESES
+    (39) expressao -> . SAIDA ABREPARENTESES VAR FECHAPARENTESES
+    (40) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (41) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM
+    (42) expressao -> . ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (49) expressao -> . DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+    (5) tipo -> . INTEIRO
+    (6) tipo -> . REAL
+    (7) tipo -> . CARACTERE
+
+  ! shift/reduce conflict for VAR resolved as shift
+  ! shift/reduce conflict for ENTRADA resolved as shift
+  ! shift/reduce conflict for SAIDA resolved as shift
+  ! shift/reduce conflict for SE resolved as shift
+  ! shift/reduce conflict for ENQUANTO resolved as shift
+  ! shift/reduce conflict for DURANTE resolved as shift
+  ! shift/reduce conflict for INTEIRO resolved as shift
+  ! shift/reduce conflict for REAL resolved as shift
+  ! shift/reduce conflict for CARACTERE resolved as shift
+    FIM             reduce using rule 2 (expressoes -> .)
+    VAR             shift and go to state 5
+    ENTRADA         shift and go to state 6
+    SAIDA           shift and go to state 7
+    SE              shift and go to state 8
+    ENQUANTO        shift and go to state 9
+    DURANTE         shift and go to state 10
+    INTEIRO         shift and go to state 11
+    REAL            shift and go to state 12
+    CARACTERE       shift and go to state 13
+
+  ! VAR             [ reduce using rule 2 (expressoes -> .) ]
+  ! ENTRADA         [ reduce using rule 2 (expressoes -> .) ]
+  ! SAIDA           [ reduce using rule 2 (expressoes -> .) ]
+  ! SE              [ reduce using rule 2 (expressoes -> .) ]
+  ! ENQUANTO        [ reduce using rule 2 (expressoes -> .) ]
+  ! DURANTE         [ reduce using rule 2 (expressoes -> .) ]
+  ! INTEIRO         [ reduce using rule 2 (expressoes -> .) ]
+  ! REAL            [ reduce using rule 2 (expressoes -> .) ]
+  ! CARACTERE       [ reduce using rule 2 (expressoes -> .) ]
+
+    expressoes                     shift and go to state 101
+    expressao                      shift and go to state 3
+    tipo                           shift and go to state 4
+
+state 101
+
+    (49) expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes . FIM
+    (4) expressoes -> expressoes . expressao
+    (8) expressao -> . tipo VAR
+    (9) expressao -> . VAR ATRIBUI INTEIRODEF
+    (10) expressao -> . VAR ATRIBUI REALDEF
+    (11) expressao -> . VAR ATRIBUI CARACTEREDEF
+    (12) expressao -> . VAR ATRIBUI VAR
+    (13) expressao -> . VAR ATRIBUI VAR aritmeticos
+    (38) expressao -> . ENTRADA ABREPARENTESES VAR FECHAPARENTESES
+    (39) expressao -> . SAIDA ABREPARENTESES VAR FECHAPARENTESES
+    (40) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (41) expressao -> . SE ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM SENAO COMECO expressoes FIM
+    (42) expressao -> . ENQUANTO ABREPARENTESES teste FECHAPARENTESES COMECO expressoes FIM
+    (49) expressao -> . DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM
+    (5) tipo -> . INTEIRO
+    (6) tipo -> . REAL
+    (7) tipo -> . CARACTERE
+
+    FIM             shift and go to state 102
+    VAR             shift and go to state 5
+    ENTRADA         shift and go to state 6
+    SAIDA           shift and go to state 7
+    SE              shift and go to state 8
+    ENQUANTO        shift and go to state 9
+    DURANTE         shift and go to state 10
+    INTEIRO         shift and go to state 11
+    REAL            shift and go to state 12
+    CARACTERE       shift and go to state 13
+
+    expressao                      shift and go to state 14
+    tipo                           shift and go to state 4
+
+state 102
+
+    (49) expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM .
+
+    VAR             reduce using rule 49 (expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM .)
+    ENTRADA         reduce using rule 49 (expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM .)
+    SAIDA           reduce using rule 49 (expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM .)
+    SE              reduce using rule 49 (expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM .)
+    ENQUANTO        reduce using rule 49 (expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM .)
+    DURANTE         reduce using rule 49 (expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM .)
+    INTEIRO         reduce using rule 49 (expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM .)
+    REAL            reduce using rule 49 (expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM .)
+    CARACTERE       reduce using rule 49 (expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM .)
+    $end            reduce using rule 49 (expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM .)
+    FIM             reduce using rule 49 (expressao -> DURANTE ABREPARENTESES INTEIRODEF PONTOEVIRGULA maismenos PONTOEVIRGULA INTEIRODEF PONTOEVIRGULA comparacao PONTOEVIRGULA INTEIRODEF FECHAPARENTESES COMECO expressoes FIM .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for VAR in state 0 resolved as shift
+WARNING: shift/reduce conflict for ENTRADA in state 0 resolved as shift
+WARNING: shift/reduce conflict for SAIDA in state 0 resolved as shift
+WARNING: shift/reduce conflict for SE in state 0 resolved as shift
+WARNING: shift/reduce conflict for ENQUANTO in state 0 resolved as shift
+WARNING: shift/reduce conflict for DURANTE in state 0 resolved as shift
+WARNING: shift/reduce conflict for INTEIRO in state 0 resolved as shift
+WARNING: shift/reduce conflict for REAL in state 0 resolved as shift
+WARNING: shift/reduce conflict for CARACTERE in state 0 resolved as shift
+WARNING: shift/reduce conflict for SOMA in state 22 resolved as shift
+WARNING: shift/reduce conflict for SUBTRACAO in state 22 resolved as shift
+WARNING: shift/reduce conflict for MULTIPLICACAO in state 22 resolved as shift
+WARNING: shift/reduce conflict for DIVISAO in state 22 resolved as shift
+WARNING: shift/reduce conflict for RESTO in state 22 resolved as shift
+WARNING: shift/reduce conflict for E in state 29 resolved as shift
+WARNING: shift/reduce conflict for OU in state 29 resolved as shift
+WARNING: shift/reduce conflict for E in state 30 resolved as shift
+WARNING: shift/reduce conflict for OU in state 30 resolved as shift
+WARNING: shift/reduce conflict for VAR in state 65 resolved as shift
+WARNING: shift/reduce conflict for ENTRADA in state 65 resolved as shift
+WARNING: shift/reduce conflict for SAIDA in state 65 resolved as shift
+WARNING: shift/reduce conflict for SE in state 65 resolved as shift
+WARNING: shift/reduce conflict for ENQUANTO in state 65 resolved as shift
+WARNING: shift/reduce conflict for DURANTE in state 65 resolved as shift
+WARNING: shift/reduce conflict for INTEIRO in state 65 resolved as shift
+WARNING: shift/reduce conflict for REAL in state 65 resolved as shift
+WARNING: shift/reduce conflict for CARACTERE in state 65 resolved as shift
+WARNING: shift/reduce conflict for VAR in state 77 resolved as shift
+WARNING: shift/reduce conflict for ENTRADA in state 77 resolved as shift
+WARNING: shift/reduce conflict for SAIDA in state 77 resolved as shift
+WARNING: shift/reduce conflict for SE in state 77 resolved as shift
+WARNING: shift/reduce conflict for ENQUANTO in state 77 resolved as shift
+WARNING: shift/reduce conflict for DURANTE in state 77 resolved as shift
+WARNING: shift/reduce conflict for INTEIRO in state 77 resolved as shift
+WARNING: shift/reduce conflict for REAL in state 77 resolved as shift
+WARNING: shift/reduce conflict for CARACTERE in state 77 resolved as shift
+WARNING: shift/reduce conflict for VAR in state 89 resolved as shift
+WARNING: shift/reduce conflict for ENTRADA in state 89 resolved as shift
+WARNING: shift/reduce conflict for SAIDA in state 89 resolved as shift
+WARNING: shift/reduce conflict for SE in state 89 resolved as shift
+WARNING: shift/reduce conflict for ENQUANTO in state 89 resolved as shift
+WARNING: shift/reduce conflict for DURANTE in state 89 resolved as shift
+WARNING: shift/reduce conflict for INTEIRO in state 89 resolved as shift
+WARNING: shift/reduce conflict for REAL in state 89 resolved as shift
+WARNING: shift/reduce conflict for CARACTERE in state 89 resolved as shift
+WARNING: shift/reduce conflict for VAR in state 100 resolved as shift
+WARNING: shift/reduce conflict for ENTRADA in state 100 resolved as shift
+WARNING: shift/reduce conflict for SAIDA in state 100 resolved as shift
+WARNING: shift/reduce conflict for SE in state 100 resolved as shift
+WARNING: shift/reduce conflict for ENQUANTO in state 100 resolved as shift
+WARNING: shift/reduce conflict for DURANTE in state 100 resolved as shift
+WARNING: shift/reduce conflict for INTEIRO in state 100 resolved as shift
+WARNING: shift/reduce conflict for REAL in state 100 resolved as shift
+WARNING: shift/reduce conflict for CARACTERE in state 100 resolved as shift
+WARNING: reduce/reduce conflict in state 22 resolved using rule (expressao -> VAR ATRIBUI VAR)
+WARNING: rejected rule (aritmeticos -> <empty>) in state 22
+WARNING: Rule (aritmeticos -> <empty>) is never reduced
